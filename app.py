@@ -9,6 +9,10 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+@app.route('/')
+def index():
+    return "Welcome to the Microblogging App. Use /<blog_name> to view a specific blog."
+
 @app.route('/<blog_name>')
 def blog(blog_name):
     conn = get_db_connection()
